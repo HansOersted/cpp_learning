@@ -16,4 +16,15 @@ Step2. Run
 1. using namespace
 
     using namespace std;
+
     using std::cout;
+
+
+
+2. define vectors
+
+    vector <int> vector1;
+
+    vector <vector<int>> vector2d;
+
+
