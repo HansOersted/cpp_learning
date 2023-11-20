@@ -21,10 +21,11 @@ Step2. Run
 
 
 
-2. define vectors
+2. define vectors and arrays
 
     vector <int> vector1;
 
     vector <vector<int>> vector2d;
 
+    int this_is_an_array [size_of_array];
 
