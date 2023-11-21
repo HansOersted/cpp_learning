@@ -29,3 +29,14 @@ Step2. Run
 
     int this_is_an_array [size_of_array];
 
+
+3. static cast
+
+    static_cast<double>(an_integer);
+
+
+4. boolalpha
+
+    cout << boolalpha;  // true or false
+
+    cout << noboolalpha;  // 1 or 0
