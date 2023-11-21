@@ -43,3 +43,12 @@ Step2. Run
 
 
 5.   !   &&   ||
+
+
+6. switch
+
+switch (expr) {
+    case exp1: state1; break;
+    case exp2: state2; break;
+    default: state_default;
+}
