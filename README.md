@@ -40,3 +40,6 @@ Step2. Run
     cout << boolalpha;  // true or false
 
     cout << noboolalpha;  // 1 or 0
+
+
+5.   !   &&   ||
