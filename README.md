@@ -80,3 +80,4 @@ char my_name [8];
 #include <string>    -- Cpp type
 std::string s1 {"Hans"};
 
+alphabet.find(charater) may return std::string::npos
