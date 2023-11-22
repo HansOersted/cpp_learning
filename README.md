@@ -52,3 +52,18 @@ switch (expr) {
     case exp2: state2; break;
     default: state_default;
 }
+
+7. range-based for
+
+for (var_type var_name: sequence){
+    statements; // cane use var_name
+}
+
+NOTE: var_type can be "auto"
+
+
+8 do while loop
+
+do {
+    statements;
+} while (expression);
