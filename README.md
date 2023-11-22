@@ -81,3 +81,18 @@ char my_name [8];
 std::string s1 {"Hans"};
 
 alphabet.find(charater) may return std::string::npos
+
+
+10. prototype of a function
+
+int func(int);
+or
+int func(int a = 1); // default argument value. only need to give the default in the prototype.
+
+
+11. pass by reference
+
+void number (int &a) {
+   // a can be changed even after jumping outside of this scope. 
+}
+
