@@ -62,8 +62,21 @@ for (var_type var_name: sequence){
 NOTE: var_type can be "auto"
 
 
-8 do while loop
+8. do while loop
 
 do {
     statements;
 } while (expression);
+
+
+9. characters and Strings
+
+#include <cctype>
+
+#include <cstring>   -- C type
+#include <cstdlib>   -- C type
+char my_name [8];
+
+#include <string>    -- Cpp type
+std::string s1 {"Hans"};
+
