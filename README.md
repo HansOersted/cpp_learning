@@ -96,3 +96,72 @@ void number (int &a) {
    // a can be changed even after jumping outside of this scope. 
 }
 
+
+12. pointer declare
+
+int *int_ptr {nullptr};
+
+int *score_ptr {&score};
+
+
+13.   &    *  
+
+
+14. allocate storage
+
+int *int_ptr {nullptr};
+
+int_ptr = new int;
+
+...
+
+delete int_ptr;
+
+
+15. allocate storage
+
+int *array_ptr {nullptr};
+
+int size {};
+
+array_ptr = new int[size_of_array];
+
+...
+
+delete [] array_ptr;
+
+
+16. pointers to constants
+
+const int *int_ptr {&an_int};   // data is const and cannot be changed
+
+
+17. constant pointers
+
+int *const int_ptr {&an_int};   // cannot point somewhere else, data can be changed
+
+
+18. constant pointers to constants
+
+const int *const int_ptr {&an_int};
+
+
+19. passing pointers to a function
+
+void func(int *int_ptr);
+
+func(&value);
+
+
+20. returning a pointer from a function
+
+int *largest_int_ptr(int *int_ptr1, int *int_ptr2);
+
+
+21. USE REFRENCE in a loop
+
+for (auto element: vector_name) { ... };  // cannot change the elements in the ORIGINAL vector, DO NOT USE
+
+for (auto &element: vector_name) { ... };  // can change the elements in the ORIGINAL vector
+
+for (auto const &element: vector_name) { ... };   // cannot change the elements in the ORIGINAL vector
