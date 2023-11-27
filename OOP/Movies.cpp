@@ -59,5 +59,10 @@ bool Movies::increment_watched(std::string name) {
     object displays itself
     *********************************************************************/
 void Movies::display() const {
-   // You implement this method
+   if movies.size() != 0
+    for (const auto &movie: movies) {
+            movie.display();
+    }
+   else
+    std::cout << "Sorry, no movies to display" <<  std::endl;
 }
