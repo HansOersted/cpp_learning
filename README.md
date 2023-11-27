@@ -165,3 +165,91 @@ for (auto element: vector_name) { ... };  // cannot change the elements in the O
 for (auto &element: vector_name) { ... };  // can change the elements in the ORIGINAL vector
 
 for (auto const &element: vector_name) { ... };   // cannot change the elements in the ORIGINAL vector
+
+
+22. class declaration
+
+class Player
+{
+};
+
+Player *enemy = new Player;  // Player *enemy = new Player();  Player *enemy = new Player("Name",10);  depends on the constructor
+
+delete enemy;
+
+
+23. private and protected
+
+private: accessible only by members or friends of the class
+
+protected: private + accessible by inheritance
+
+
+24. include guards (in Account.h)
+
+#ifndef _ACCOUNT_H_  //whether Account.h is included
+#define _ACCOUNT_H_
+
+// Account class declaratuin
+
+#endif
+
+
+25. Account.cpp  Account.h  main.cpp
+
+Account.h  //declare a class
+
+Account.cpp  // implement the method; # include "Account.h"
+
+main.cpp  // # include "Account.h"
+
+
+26. Constructor
+    Player hero {"Hero"};
+    Player *hero = new Player("Hero");
+    delete hero;
+
+
+27. Initialization List
+
+Player::Player()
+: name{"None"}, health{0}, exp{0} {
+    }
+
+Player::Playe {"name", 0} {   //delegating the constructor
+    }       
+
+
+28. shallow copy constructor: only the pointer will be copied
+
+Player::Player(const Player & source)  // use reference
+    : name{source.name},
+      health {source.health} {
+      }
+
+
+29. deep copy: define a new pointer and copy the value that it is pointing to.
+
+
+30. move constructor: steal the pointer and null out the cource pointer
+
+Move::Move(Move &&source)  // R-reference
+    : data {source.data} {
+        source.data = nullptr;
+    }
+
+
+31. this pointer: pointing to the current class
+
+
+32. const object
+
+const Player shen {"Shen", 100};  // cannot change its attributes
+
+
+33. utilize the methods in the const object: add "const" at the end of the method;
+
+
+34. class in C++: default is private
+    struct in C: default is public
+
