@@ -253,3 +253,55 @@ const Player shen {"Shen", 100};  // cannot change its attributes
 34. class in C++: default is private
     struct in C: default is public
 
+
+35. Assignment Operator Overloading
+
+Type &Type::operator=(const Type &rhs);  // copy
+
+Type &Type::operator=(Type &&rhs); // move
+
+NOTE: use reference in return
+
+
+36. Unary Operator as member methods
+
+ReturnType Type::operatorOP();
+
+
+37. Binary Operator as member methods
+
+ReturnType Type::operatorOP(const Type &rhs);
+
+
+38. Unary Operator as global functions
+
+ReturnType operatorOP(Type &obj);
+
+
+39. Binary Operator as global functions
+
+ReturnType operatorOP(const Type &lhs, const Type &rhs);
+
+
+40. steam insertion operator (<<)
+
+std::ostream &operator<<(std::ostream &os, const Mystring &obj) {
+    os << obj.str;
+    return os;
+}
+
+NOTE: use reference in return
+
+
+41. steam extraction operator (>>)
+
+std::istream &operator>>(std::istream &is, const Mystring &obj) {
+    char *buff = new char[1000];
+    is >> buff;
+    obj = Mystring{buff};
+    delete [] buff;
+    return is;
+}
+
+
+
