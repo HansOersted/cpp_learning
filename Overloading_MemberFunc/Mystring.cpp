@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <cctype>
 #include "Mystring.h"
 
  // No-args constructor
@@ -89,4 +90,26 @@ std::istream &operator>>(std::istream &in, Mystring &rhs) {
     delete [] buff;
     return in;
 }
+
+
+
+
+// overloaded operator-
+Mystring Mystring::operator-() {
+    for (size_t it = 0; str[it] != '\0'; it++) {
+        str[it] = std::tolower(str[it]);
+    }
+    return *this;
+}
+
+// overloaded operator==
+bool Mystring::operator==(const Mystring &rhs) const {
+    return !std::strcmp(str, rhs.get_str());
+}
+
+// overloaded operator!=
+bool Mystring::operator!=(const Mystring &rhs) const {
+    return std::strcmp(str, rhs.get_str());
+}
+
 
