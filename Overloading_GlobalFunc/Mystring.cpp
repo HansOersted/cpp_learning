@@ -90,3 +90,85 @@ std::istream &operator>>(std::istream &in, Mystring &rhs) {
     return in;
 }
 
+
+
+
+// overloaded operator-
+Mystring operator-(Mystring obj) {
+    for (size_t it = 0; obj.str[it] != '\0'; it++) {
+        obj.str[it] = std::tolower(obj.str[it]);
+    }
+    return obj;
+}
+
+// overloaded operator==
+bool operator==(const Mystring &lhs, const Mystring &rhs) {
+    return !std::strcmp(lhs.str, rhs.get_str());
+}
+
+// overloaded operator!=
+bool operator!=(const Mystring &lhs, const Mystring &rhs) {
+    return std::strcmp(lhs.str, rhs.get_str());
+}
+
+
+// overloaded operator<
+bool operator<(const Mystring &lhs, const Mystring &rhs) {
+    return std::strcmp(lhs.str, rhs.get_str()) < 0;
+};
+
+
+// overloaded operator>
+bool operator>(const Mystring &lhs, const Mystring &rhs) {
+    return std::strcmp(lhs.str, rhs.get_str()) > 0;
+};  
+
+
+// overloaded operator+
+Mystring operator+(Mystring &lhs, const char *const rhs) {
+    std::strcat(lhs.str, rhs);
+    return lhs;
+};  
+
+
+// overloaded operator+=
+Mystring operator+=(Mystring &lhs, const char *const rhs) {
+    std::strcat(lhs.str, rhs);
+    return lhs;
+};  
+
+
+// overloaded operator*
+Mystring operator*(Mystring &lhs, const int rhs) {
+    size_t updated_length {strlen(lhs.str) * rhs + 1};
+    char *temp = new char [updated_length];
+    for(int it = 1; it <= rhs; it++) {
+        std::strcat(temp, lhs.str);
+    }
+    Mystring updated_string {temp};
+    delete [] temp;
+    return updated_string;
+};  
+
+// overloaded operator*=
+Mystring operator*=(Mystring &lhs, const int rhs) {
+    lhs = lhs * rhs;
+    return lhs;
+};  
+
+
+// overloaded operator++
+Mystring operator++(Mystring &lhs) {
+    for(size_t it = 0; lhs.str[it] != '\0'; it++) {
+        lhs.str[it] = std::toupper(lhs.str[it]);
+    }
+    return lhs;
+};  
+
+// overloaded operator++(int)
+Mystring operator++(Mystring &lhs, int) {
+    for(size_t it = 0; lhs.str[it] != '\0'; it++) {
+        lhs.str[it] = std::toupper(lhs.str[it]);
+    }
+    return lhs;
+};  
