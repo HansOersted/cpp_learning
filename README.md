@@ -304,4 +304,10 @@ std::istream &operator>>(std::istream &is, const Mystring &obj) {
 }
 
 
+42. Prefix and Postfix overloading
 
+++s: 
+Mystring Mystring::operator++();
+
+s++: 
+Mystring Mystring::operator++(int);

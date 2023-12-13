@@ -28,8 +28,14 @@ public:
     Mystring operator-();  // overloaded operator-
     bool operator==(const Mystring &rhs) const;  // overloaded operator==
     bool operator!=(const Mystring &rhs) const;  // overloaded operator!=
-
-
+    bool operator<(const Mystring &rhs) const;  // overloaded operator<
+    bool operator>(const Mystring &rhs) const;  // overloaded operator>
+    Mystring operator+(const char *const rhs);  // overloaded operator+
+    Mystring operator+=(const char *const rhs);  // overloaded operator+=
+    Mystring operator*(const int rhs);  // overloaded operator*
+    Mystring operator*=(const int rhs);  // overloaded operator*=
+    Mystring operator++();  // overloaded operator++
+    Mystring operator++(int);  // overloaded operator++(int)
 };
 
 #endif // _MYSTRING_H_

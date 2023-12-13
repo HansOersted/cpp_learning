@@ -113,3 +113,63 @@ bool Mystring::operator!=(const Mystring &rhs) const {
 }
 
 
+// overloaded operator<
+bool Mystring::operator<(const Mystring &rhs) const {
+    return std::strcmp(str, rhs.get_str()) < 0;
+};
+
+
+// overloaded operator>
+bool Mystring::operator>(const Mystring &rhs) const {
+    return std::strcmp(str, rhs.get_str()) > 0;
+};  
+
+
+// overloaded operator+
+Mystring Mystring::operator+(const char *const rhs) {
+    std::strcat(str, rhs);
+    return *this;
+};  
+
+
+// overloaded operator+=
+Mystring Mystring::operator+=(const char *const rhs) {
+    std::strcat(str, rhs);
+    return *this;
+};  
+
+
+// overloaded operator*
+Mystring Mystring::operator*(const int rhs) {
+    size_t updated_length {strlen(str) * rhs + 1};
+    char *temp = new char [updated_length];
+    for(int it = 1; it <= rhs; it++) {
+        std::strcat(temp, str);
+    }
+    Mystring updated_string {temp};
+    delete [] temp;
+    return updated_string;
+};  
+
+// overloaded operator*=
+Mystring Mystring::operator*=(const int rhs) {
+    *this = *this * rhs;
+    return *this;
+};  
+
+
+// overloaded operator++
+Mystring Mystring::operator++() {
+    for(size_t it = 0; str[it] != '\0'; it++) {
+        str[it] = std::toupper(str[it]);
+    }
+    return *this;
+};  
+
+// overloaded operator++(int)
+Mystring Mystring::operator++(int) {
+    for(size_t it = 0; str[it] != '\0'; it++) {
+        str[it] = std::toupper(str[it]);
+    }
+    return *this;
+};  
