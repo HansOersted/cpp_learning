@@ -78,3 +78,36 @@ int main() {
     display(*vec_ptr);
     return 0;
 }
+
+
+
+// creates and returns a unique_ptr to a vector of shared_ptrs to Test objects
+std::unique_ptr<std::vector<std::shared_ptr<Test>>> make() {
+    return std::make_unique<std::vector<std::shared_ptr<Test>>>();
+};
+
+
+// This function will prompt the user to enter an integer, create a shared_ptr to a Test object 
+// initialized to the entered integer and add that shared pointer to the vector.
+void fill(std::vector<std::shared_ptr<Test>> &vec, int num) {
+    for(int it = 0; it < num; it++) {
+        int temp {};
+        std::cout << "Enter data point [" << it + 1 << "]:";
+        std::cin >> temp;
+        std::cout << std::endl;
+        vec.push_back(std::make_shared<Test>(temp));
+    }
+};
+
+
+// displays the data in each Test object
+void display(const std::vector<std::shared_ptr<Test>>&vec) {
+    std::cout << "Displaying vector data" << std::endl;
+    std::cout << "=======================" << std::endl;
+    size_t len {vec.size()};
+    for(int it = 0; it < len; it++) {
+        auto shared_pointer = vec[it];
+        auto test_obj = *shared_pointer;
+        std::cout << test_obj.get_data() << std::endl;
+    }
+};

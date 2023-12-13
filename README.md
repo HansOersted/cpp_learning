@@ -317,9 +317,9 @@ Mystring Mystring::operator++(int);
 
 std::unique_ptr<int> p1 {new int {100}};
 
-std::unique_ptr<int> p1 = make_unique<int>(100);
+std::unique_ptr<int> p1 = std::make_unique<int>(100);
 
-auto p1 = make_unique<Player>("Shen",100);
+auto p1 = std::make_unique<Player>("Shen",100);
 
 
 p1.get();  // return the address
@@ -337,9 +337,9 @@ vec.push_back(std::move(ptr));  // ptr will be null
 
 std::shared_ptr<int> p1 {new int {100}};
 
-std::shared_ptr<int> p1 = make_shared<int>(100);
+std::shared_ptr<int> p1 = std::make_shared<int>(100);
 
-auto p1 = make_shared<Player>("Shen",100);
+auto p1 = std::make_shared<Player>("Shen",100);
 
 
 p1.use_count();
