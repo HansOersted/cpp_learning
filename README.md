@@ -311,3 +311,38 @@ Mystring Mystring::operator++();
 
 s++: 
 Mystring Mystring::operator++(int);
+
+
+43. unique pointers
+
+std::unique_ptr<int> p1 {new int {100}};
+
+std::unique_ptr<int> p1 = make_unique<int>(100);
+
+auto p1 = make_unique<Player>("Shen",100);
+
+
+p1.get();  // return the address
+p1.reset();  //nullify
+
+
+44. unique pointers can not be copied. Use std::move(ptr)
+
+vec.push_back(ptr);  // ERROR - copy not allowed
+
+vec.push_back(std::move(ptr));  // ptr will be null 
+
+
+45. shared pointers
+
+std::shared_ptr<int> p1 {new int {100}};
+
+std::shared_ptr<int> p1 = make_shared<int>(100);
+
+auto p1 = make_shared<Player>("Shen",100);
+
+
+p1.use_count();
+
+
+46. shared pointers can be copied and/or moved.
