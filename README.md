@@ -346,3 +346,43 @@ p1.use_count();
 
 
 46. shared pointers can be copied and/or moved.
+
+
+47. template
+
+template <typename T>
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+template <class T>
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+max<int>(10, 20)
+
+
+template <typename T1, typename T2>
+void func(T1 a, T2 b) { ......... }
+
+func<int,double>(10, 20.2);
+
+
+NOTE: can also use for the class template 
+
+
+template <int N> // know at the compile-time
+
+
+48. iterator
+
+std::vector<int>::iterator it = vec.begin();
+
+
+49. std::find()
+
+auto loc = std::find(vec.begin(), vec.end(), an_item); //return to the iterator pointing to the an_item or to the end, that is vec.end()
+
+
+50. 
