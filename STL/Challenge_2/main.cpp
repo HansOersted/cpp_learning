@@ -56,16 +56,20 @@ void display_menu() {
 
 void play_current_song(const Song &song) {
     // This function should display 
-    // Playing: followed by the song that is playing
-   
-    std::cout << "You implement this function"<< std::endl;
+    // Playing: followed by the song that is playing [complete]
+    std::cout << "Playing: "<< std::endl;
+    std::cout << song << std::endl;
 }
 
 void display_playlist(const std::list<Song> &playlist, const Song &current_song) {
     // This function should display the current playlist 
-    // and then the current song playing.
+    // and then the current song playing. [complete]
+    for(const auto &song: playlist) {
+        std::cout << song << std::endl;
+    }
+    std::cout << "Current song:" << std::endl;
+    std::cout << current_song << std::endl;
     
-    std::cout << "You implement this function" << std::endl;
 }
 
 int main() {
@@ -83,6 +87,56 @@ int main() {
     
     std::cout << "To be implemented" << std::endl;
     // Your program logic goes here
+
+    while(1){
+        char option {};
+        display_menu();
+        cin >> option;
+        switch (expression)
+        {
+        case f:
+        case F: {
+            std::cout << "Playing first song" << std::endl;
+            current_song = playlist.begin();
+            play_current_song(*current_song);
+        }
+            break;
+        
+        case n:
+        case N: {
+            std::cout << "Playing next song" << std::endl;
+            if(current_song != mylist.end())
+                current_song = current_song++;
+            else
+                current_song = playlist.begin();
+            play_current_song(*current_song);            
+        }
+            break;
+        
+        case p:
+        case P: {
+            std::cout << "Playing previous song" << std::endl;
+            if(current_song != mylist.begin())
+                current_song = current_song--;
+            else
+                current_song = playlist.end();
+            play_current_song(*current_song);            
+        }
+            break;
+
+        case l:
+        case L: {
+            display_playlist(playlist, *current_song);
+        }
+            break;
+
+        case a:
+        case A: {
+
+        }
+            break;
+        }
+    }
 
     std::cout << "Thanks for listening!" << std::endl;
     return 0;
