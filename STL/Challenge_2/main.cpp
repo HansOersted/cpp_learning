@@ -8,6 +8,7 @@
 #include <cctype>
 #include <iomanip>
 #include <limits>
+#include <memory>
 
 class Song {
     friend std::ostream &operator<<(std::ostream &os, const Song &s);
@@ -88,53 +89,76 @@ int main() {
     std::cout << "To be implemented" << std::endl;
     // Your program logic goes here
 
-    while(1){
+    bool exit_flag {false};
+    while(!exit_flag){
         char option {};
         display_menu();
-        cin >> option;
-        switch (expression)
+        std::cin >> option;
+        switch (option)
         {
-        case f:
-        case F: {
+        case 'f':
+        case 'F': {
             std::cout << "Playing first song" << std::endl;
             current_song = playlist.begin();
             play_current_song(*current_song);
         }
             break;
         
-        case n:
-        case N: {
+        case 'n':
+        case 'N': {
             std::cout << "Playing next song" << std::endl;
-            if(current_song != mylist.end())
-                current_song = current_song++;
-            else
+            if(++current_song == playlist.end())
                 current_song = playlist.begin();
             play_current_song(*current_song);            
         }
             break;
         
-        case p:
-        case P: {
+        case 'p':
+        case 'P': {
             std::cout << "Playing previous song" << std::endl;
-            if(current_song != mylist.begin())
+            if(current_song != playlist.begin())
                 current_song = current_song--;
-            else
+            else {
                 current_song = playlist.end();
+                current_song--;}
             play_current_song(*current_song);            
         }
             break;
 
-        case l:
-        case L: {
+        case 'l':
+        case 'L': {
             display_playlist(playlist, *current_song);
         }
             break;
 
-        case a:
-        case A: {
-
+        case 'a':
+        case 'A': {
+            std::string song_name {};
+            std::string song_artist {};
+            int rate {0};
+            std::cout << "Adding and playing new song" << std::endl;
+            std::cout << "Enter song name:" << std::endl;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignore the \n in the buffer
+            std::getline(std::cin, song_name);
+            std::cout << std::endl;
+            std::cout << "Enter song artist:" << std::endl;
+            std::getline(std::cin, song_artist);
+            std::cout << std::endl;
+            std::cout << "Enter your rating (1-5): " << std::endl;
+            std::cin >> rate;
+            std::cout << std::endl;
+            auto new_song = std::make_shared<Song>(song_name, song_artist, rate);
+            playlist.insert(playlist.begin(),*new_song);
+            current_song = playlist.begin();
+            play_current_song(*current_song);
         }
             break;
+
+        case 'q':
+        case 'Q': {
+            exit_flag = true;
+        }
+        
         }
     }
 
