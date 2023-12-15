@@ -391,3 +391,74 @@ playlist.end() does NOT point to the last element.
 It points to the one after the last element.
 
 On the contrary, playlist.begin() points to the initial element.
+
+
+51. structure of a Lambda Expression
+
+[] () -> return_type specifiers {};
+
+[] () {};
+
+
+CALL:
+
+[] (auto x) {}(100); // very interesting auto. x legal for int, double, ...
+
+or
+
+auto l = [] () {};
+l();
+
+
+52. use Lambda expressions as function parameters (std::function)
+
+#include <functional> // for std::function, which is the type of the lambda function
+
+void foo(std::function<void(int)> l) {
+    l(10);
+}
+
+
+53. use Lambda expressions as function parameters (function pointer, not common)
+
+void foo(void (*l) (int)) {
+    l(10);
+}
+
+
+54. use Lambda expressions as function parameters (auto)
+
+void foo (auto l) {
+    l(10);
+}
+
+
+55. return Lambda expressions from functions (std::function)
+
+#include <functional> // for std::function, which is the type of the lambda function
+
+std::function<void(int)> foo() {
+    return [] (int x) {std::cout << x;};
+}
+
+
+56. return Lambda expressions from functions (function pointer, not common)
+
+void (*foo()) (int) {
+    return [] (int x) {std::cout << x;};
+}
+
+
+57. return Lambda expressions from functions (auto)
+
+auto foo() {
+    return [] (int x) {std::cout << x;};
+}
+
+
+58. capture by value in Lambda expressions
+
+int x {100};
+
+[x] () {std::cout << x;} ();
+
