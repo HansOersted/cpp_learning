@@ -385,4 +385,9 @@ std::vector<int>::iterator it = vec.begin();
 auto loc = std::find(vec.begin(), vec.end(), an_item); //return to the iterator pointing to the an_item or to the end, that is vec.end()
 
 
-50. 
+50. playlist.end() and playlist.begin()
+
+playlist.end() does NOT point to the last element.
+It points to the one after the last element.
+
+On the contrary, playlist.begin() points to the initial element.
