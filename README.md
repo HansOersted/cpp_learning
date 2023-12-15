@@ -462,3 +462,21 @@ int x {100};
 
 [x] () {std::cout << x;} ();
 
+
+
+59. enumerator list
+
+enum {Red, Green, Blue}; // 0 1 2 (default)
+
+enum {Red = 1, Green = 2, Blue = 3};
+
+int my_color {Red};
+
+
+60. enumerator list with type
+
+enum {Red, Green, Blue}; // 0 1 2 (default)
+
+enum Color {Red = 1, Green = 2, Blue = 3};
+
+Color my_color {Red};
